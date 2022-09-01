@@ -1,0 +1,36 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using LastPassProject.Helpers
+<div>
+    <div> Añadir Contraseña</div>
+    <div>
+        <label>Url:</label>
+        <input @bind-value="UserPassword.URL" />
+    </div>
+    <div>
+        <label>Nombre:</label>
+        <input @bind-value="UserPassword.Name"/>
+        <label>Carpeta:</label>
+        <input @bind-value="UserPassword.Folder"/>
+    </div>
+    <div>
+        <label>Nombre de Usuario:</label>
+        <input @bind-value="UserPassword.Username"/>
+        <label>Contraseña:</label>
+        <input @bind-value="UserPassword.Password"/>
+    </div>
+    <div>
+        <label>Notas:</label>
+        <input @bind-value="UserPassword.Notes"/>
+    </div>
+    <button @onclick="Cancel">Cancelar</button>
+
+    <button @onclick="SubmitForm">Guardar</button>
+</div>
+@code {
+    [CascadingParameter] BlazoredModalInstance BlazoredModal { get; set; } = default!;
+    UserPassword UserPassword = new UserPassword();
+
+
+        async Task SubmitForm() => await BlazoredModal.Close(ModalResult.Ok(UserPassword));
+        async Task Cancel() => await BlazoredModal.Cancel();
+}

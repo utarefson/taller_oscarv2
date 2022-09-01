@@ -1,0 +1,48 @@
+﻿@using LastPassProject.Helpers
+
+@*<div style="display:flex;flex-direction:column">
+    <img src="@DomainURL" width="150" height="50" />
+    <p>@DomainName</p>
+    <p>@Username</p>
+    <button>ed</button>
+    <button>c</button>
+    <button>el</button>
+</div>
+    *@
+
+
+<div class="card">
+    <div class="sub-card">
+        <div class="" style="">
+            <img class="" src="@DomainURL" width="150" height="50" />
+            <p class="">@userPassword.URL</p>
+            <p class=""style="">@userPassword.Username</p>
+        </div>
+     <div >
+         <button>edit</button>
+        <input type="button" class="btn btn-success m-1" @onclick="(args)=> returnDetele(args)" style="width:200px;" value="delete"/>
+     </div>   
+    
+    </div>
+
+    <div class="sub-card" id="box2" style="display: none">
+        <div style="text-align: center; ">
+            <br>
+            <button id="action-btn" onclick="alert('click on action')">Action</button>
+        </div>
+    </div>
+</div>
+@code{
+    [Parameter] public UserPassword userPassword{get;set;}
+    [Parameter] public string DomainURL { get; set; }
+   
+    CRUDFunction cRUDFunction = new CRUDFunction();
+
+    void returnDetele(MouseEventArgs e)
+    {
+        GoogleDriveCRUD googleDriveCRUD = new GoogleDriveCRUD();
+       
+        cRUDFunction.Delete(userPassword.Id);
+    }
+
+}

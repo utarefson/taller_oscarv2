@@ -1,0 +1,47 @@
+﻿@using LastPassProject.Helpers
+@inject NavigationManager NavigationManager;
+@inject IModalService modal
+<div class="parent"> 
+    <button style="border-radius:70%;" @onclick="ShowModal"></button>
+
+</div>
+
+@code {
+    [CascadingParameter] public IModalService Modal { get; set; } = default!;
+    GoogleDriveCRUD googleDriveCRUD = new GoogleDriveCRUD();
+    SerializeDeserialize serializeDeserialize = new SerializeDeserialize();
+    UserPassword userPassword = new UserPassword();
+    List<UserPassword> userPasswords = new List<UserPassword>();
+    EncryptionHelper encryptDecrypt = new EncryptionHelper();
+
+
+    async Task ShowModal()
+    {
+        var dataForm = Modal.Show<FormComponent>();
+        var result = await dataForm.Result;
+
+        SetData();
+        if (!result.Cancelled)
+        {
+            UserPassword userPassword = (UserPassword)result.Data;
+            string encrypted = encryptDecrypt.Encrypt(userPassword.Password);
+            userPassword.Password = encrypted;
+            userPasswords.Add(userPassword);
+            UpdateData();
+            NavigationManager.NavigateTo("/vault",true);
+        }
+
+    }
+
+    public void SetData()
+    {
+        userPasswords=serializeDeserialize.DeserializeJson(googleDriveCRUD.ReadFile());
+    }
+
+    public void UpdateData()
+    {
+        serializeDeserialize.CreateUpdateJson(userPasswords);
+        googleDriveCRUD.UploadFileToDrive();
+    }
+
+}

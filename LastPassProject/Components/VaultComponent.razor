@@ -1,0 +1,25 @@
+﻿
+
+<div>
+    @if (userPasswords.Count == 0)
+    {
+        <div class="centerdiv">
+            <img src="/img/vault.png">
+        </div>
+    }
+    else
+    {
+        <div class="row">
+                 @foreach (var item in userPasswords)
+                  {
+                    <div class="card" style="margin:50px">
+                        <CardVaultComponent DomainURL="img/índice.png" userPassword="item"/>
+                    </div>
+                  }
+        </div>
+    }
+    <div><ButtonToAddCompenent></ButtonToAddCompenent></div>
+    
+</div>
+
+
