@@ -1,0 +1,17 @@
+﻿        .card {
+            background: #efefef;
+            width: 200px;
+            height: 100px;
+        }
+
+        .sub-card {
+            width: 200px;
+            height: 100px;
+        }
+
+        .card:hover > #box2 {
+            background: #4a5568;
+            position: relative;
+            top: -100px;
+            display: block !important;
+        }
