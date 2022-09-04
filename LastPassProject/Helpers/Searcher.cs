@@ -10,7 +10,7 @@ namespace LastPassProject.Helpers
         public List<UserPassword> Segregate(string wordToSearch)
         {
             UserPasswordList userPasswordList = new UserPasswordList();
-            var userPasswords = userPasswordList.SetData();
+            var userPasswords = userPasswordList.GetData();
             var urlItems = userPasswords.Where(p => p.URL.Contains(wordToSearch)).ToList();
             var nameItems = userPasswords.Where(p => p.Name.Contains(wordToSearch)).ToList();
             var folderItems = userPasswords.Where(p => p.Folder.Contains(wordToSearch)).ToList();

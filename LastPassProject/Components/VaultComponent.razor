@@ -12,7 +12,7 @@
             
             @if (string.IsNullOrEmpty(wordToSearch))
             {
-                @foreach (var item in userPasswordLists.SetData())
+                @foreach (var item in userPasswordLists.GetData())
                 {
                     <div class="col-6">
                     <CardVaultComponent userPassword="item"/>
@@ -28,7 +28,6 @@
                     </div>
                 }
             }
-            
         </div>
     </div>
 </div>

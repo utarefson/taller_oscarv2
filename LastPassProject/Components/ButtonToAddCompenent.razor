@@ -19,7 +19,7 @@
 
         if (!result.Cancelled)
         {
-            userPasswords = userPasswordList.SetData();
+            userPasswords = userPasswordList.GetData();
             UserPassword userPassword = (UserPassword)result.Data;
             string encrypted = userPasswordList.Encrypt(userPassword.Password);
             userPassword.Password = encrypted;

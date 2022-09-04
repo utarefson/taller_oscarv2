@@ -4,7 +4,7 @@ namespace LastPassProject.Helpers
 {
     public interface IUserPasswordList
     {
-        public List<UserPassword> SetData();
+        public List<UserPassword> GetData();
         public void UpdateData();
         public void Edit(UserPassword userPassword);
         public void Delete(int Id);

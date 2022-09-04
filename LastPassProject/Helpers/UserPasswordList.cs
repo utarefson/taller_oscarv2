@@ -10,7 +10,7 @@ namespace LastPassProject.Helpers
         SerializeDeserialize serializeDeserialize = new SerializeDeserialize();
         List<UserPassword> userPasswords = new List<UserPassword>();
         EncryptionHelper encryptDecrypt = new EncryptionHelper();
-        public List<UserPassword> SetData()
+        public List<UserPassword> GetData()
         {
             int incrementedId = 0;
             this.userPasswords = serializeDeserialize.DeserializeJson(googleDriveCRUD.ReadFile());
@@ -29,7 +29,7 @@ namespace LastPassProject.Helpers
         }
         public void Edit(UserPassword userPassword)
         {
-            userPasswords = SetData();
+            userPasswords = GetData();
             userPasswords.FirstOrDefault(u => u.Id == userPassword.Id).URL=userPassword.URL;
             userPasswords.FirstOrDefault(u => u.Id == userPassword.Id).Name=userPassword.Name;
             userPasswords.FirstOrDefault(u => u.Id == userPassword.Id).Folder=userPassword.Folder;
@@ -40,7 +40,7 @@ namespace LastPassProject.Helpers
         }
         public void Delete( int Id)
         {
-            userPasswords = SetData();
+            userPasswords = GetData();
             if(userPasswords == null)
             {
                 return;
