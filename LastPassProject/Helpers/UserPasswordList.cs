@@ -13,10 +13,9 @@ namespace LastPassProject.Helpers
         public List<UserPassword> SetData()
         {
             int incrementedId = 0;
-            userPasswords = serializeDeserialize.DeserializeJson(googleDriveCRUD.ReadFile());
+            this.userPasswords = serializeDeserialize.DeserializeJson(googleDriveCRUD.ReadFile());
             foreach (var item in userPasswords)
             {
-                //item.Password = encryptDecrypt.Decrypt(item.Password);
                 item.Id = incrementedId;
                 incrementedId++;
             }
@@ -25,7 +24,7 @@ namespace LastPassProject.Helpers
 
         public void UpdateData()
         {
-            serializeDeserialize.CreateUpdateJson(userPasswords);
+            serializeDeserialize.CreateUpdateJson(this.userPasswords);
             googleDriveCRUD.UploadFileToDrive();
         }
         public void Edit(UserPassword userPassword)

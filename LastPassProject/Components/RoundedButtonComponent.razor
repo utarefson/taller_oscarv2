@@ -1,25 +1,3 @@
-﻿@inject NavigationManager _nav
-
-
-    <a class="btn btn-outline-dark" href="auth/signin-google" role="button" style="text-transform:none;display:inherit;">
+﻿    <a class="btn btn-outline-dark" href="/vault" role="button" style="text-transform:none;display:inherit;">
       LOG IN
     </a>
-
-
-<AuthorizeView>
-    <Authorized>
-        
-    </Authorized>
-</AuthorizeView>
-
-
-<!-- Minified CSS and JS -->
-<link   rel="stylesheet" 
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-        crossorigin="anonymous">
-
-@code {
-    [Parameter] public string color { get; set; }
-
-}

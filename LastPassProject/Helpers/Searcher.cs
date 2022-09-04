@@ -7,7 +7,6 @@ namespace LastPassProject.Helpers
 {
     public class Searcher
     {
-
         public List<UserPassword> Segregate(string wordToSearch)
         {
             UserPasswordList userPasswordList = new UserPasswordList();

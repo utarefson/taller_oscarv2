@@ -3,16 +3,3 @@
 
     <CardLogInComponent></CardLogInComponent>
 
-
-
-@*<a href="Auth/google-login" class="btn btn-secondary">Login with Google!</a>
-<AuthorizeView>
-    <Authorized>
-        
-        @foreach (var item in context.User.Claims)
-        {
-            <h2>@item.Type @item.Value</h2>
-        }
-        <img src="@context.User.Claims.Where(s=>s.Type=="picture").FirstOrDefault().Value"/>
-    </Authorized>
-</AuthorizeView>*@

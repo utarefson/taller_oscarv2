@@ -46,8 +46,8 @@ namespace LastPassProject
                     opt.Scope.Add("profile");
                     opt.Events.OnCreatingTicket = context =>
                     {
-                        string picuri = context.User.GetProperty("picture").GetString();
-                        context.Identity.AddClaim(new Claim("picture", picuri));
+                        string picture = context.User.GetProperty("picture").GetString();
+                        context.Identity.AddClaim(new Claim("picture", picture));
                         return Task.CompletedTask;
                     };
                 });

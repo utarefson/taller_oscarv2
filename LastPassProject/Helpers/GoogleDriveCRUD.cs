@@ -14,7 +14,6 @@ using System.Threading;
 
 namespace LastPassProject.Helpers
 {
-    
     public class GoogleDriveCRUD
     {
         static string[] Scopes = { DriveService.Scope.Drive };

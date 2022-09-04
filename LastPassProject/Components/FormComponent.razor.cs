@@ -23,6 +23,7 @@ namespace LastPassProject.Components
             userPasswordList.Edit(userPassword);
             await BlazoredModal.Close(ModalResult.Ok("ok"));
         }
+        
         private async Task Cancel() => await BlazoredModal.Cancel();
     }
 }
