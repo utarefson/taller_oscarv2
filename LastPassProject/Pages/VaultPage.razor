@@ -1,0 +1,19 @@
+﻿@page "/vault"
+@using LastPassProject.Components
+@using LastPassProject.Helpers
+<div id="vault" tabindex="-1">
+    <NavMenu/>
+    <ButtonToAddCompenent/>
+    <div id="main" class="absolute right bottom leftOfAd" tabindex="-1" style="top: 0;     padding-top: 64px;">
+        <HeaderComponent OnSearch="@WordToSearch"/>
+        <VaultComponent wordToSearch="@wordToVault" />
+    </div>
+</div>
+
+@code{
+    private string wordToVault;
+    private void WordToSearch(string value)
+    {
+        this.wordToVault = value;
+    }
+}

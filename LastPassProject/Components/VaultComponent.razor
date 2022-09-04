@@ -1,0 +1,42 @@
+﻿@using LastPassProject.Helpers
+@inject IUserPasswordList userPasswordLists
+
+<div class="main-content">
+    <div class="app-container">
+        <div class="app-row">
+            <div class="col-24">
+                none
+            </div>
+        </div>
+        <div class="row-cards app-row ">
+            
+            @if (string.IsNullOrEmpty(wordToSearch))
+            {
+                @foreach (var item in userPasswordLists.GetData())
+                {
+                    <div class="col-6">
+                    <CardVaultComponent userPassword="item"/>
+                    </div>
+                }
+            }
+            else
+            {
+                @foreach (var item in searchedItems(wordToSearch))
+                {
+                    <div class="col-6">
+                    <CardVaultComponent userPassword="item"/>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+@code{
+    private Searcher searcher = new Searcher();
+    [Parameter] public string wordToSearch { get; set; }
+    private List<UserPassword> searchedItems(string wordToSearch)
+    {
+        return searcher.Segregate(wordToSearch);
+    }
+}
+

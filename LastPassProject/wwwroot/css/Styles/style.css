@@ -1,0 +1,107 @@
+.card-menu {
+    background-color: #FFF;
+    color: #000;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 50%);
+    cursor: default;
+    display: none;
+    line-height: normal;
+}
+
+.card-menu-item {
+    display: block;
+    line-height: 40px;
+    padding: 0 20px 0 50px;
+    background-position: 20px center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.card-menu-item:hover {
+    background: #dddddd;
+}
+
+
+#btnshow:checked ~ .card-menu {
+    display: block !important;
+}
+
+#btnshowmenu:checked ~ #leftMenu {
+    /*display: none !important;*/
+    width: 60px !important;
+}
+
+.main-content {
+    padding: 15px;
+}
+
+#btnshowmenu:checked ~ .right {
+    left: 60px !important;
+}
+
+.leftMenuItemCustom {
+    max-height: 40px !important;
+    overflow-y: hidden;
+}
+
+.card {
+    background: white;
+    min-height: 100px;
+    text-align: center;
+    display: block;
+}
+
+
+.sub-card {
+    width: 100%;
+    min-height: 150px;
+}
+
+.sub-card-hover {
+    width: 100%;
+    min-height: 150px;
+    position: absolute;
+    z-index: 100;
+    top: 0px;
+}
+
+
+.card:hover > #box2 {
+    display: block !important;
+}
+
+.row-cards {
+    border-top: 1px solid gray;
+    height: 30px;
+}
+
+.text-align-left{
+    text-align: left;
+}
+
+.padding-7{
+    padding: 7px;
+    box-sizing: border-box;
+}
+
+.action-btn{
+    background: #4a5568;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 20px;
+    color: white;
+}
+
+.margin-7{
+    margin: 7px;
+}
+
+.color-secondary{
+    color: #0d254b;
+}
+
+.color-gris{
+    color: #595959;
+}

@@ -1,0 +1,56 @@
+﻿@using LastPassProject.Helpers
+@inject NavigationManager NavigationManager
+@inject IJSRuntime jsRuntime
+@inject IUserPasswordList userPasswordList
+
+<div class="card">
+    <div class="sub-card">
+            <div class="card-body ; ">
+            <img src="@ImageURL()" >
+            </div>
+            <div class="card-data ; ">
+                <div>@userPassword.Name</div>
+                <div>@userPassword.Username</div>
+            </div>
+    </div>
+    <div class="sub-card-hover padding-7" id="box2" style="display: none">
+       <div class="btn-limit-content" style="text-align: center; ">
+            <a  href="@ExternalURL()" target="_blank">Go to Site</a>
+        </div>
+        <div class="actions-content" style="text-align:right">
+            <div class="fas fa-edit" @onclick="@(()=>EditItem(userPassword))"></div>
+            <div class="fas fa-trash" @onclick="DeteleItem"></div>
+        </div>
+    </div>
+</div>
+@code{
+    [Parameter] public UserPassword userPassword{get;set;}
+    [CascadingParameter] public IModalService Modal { get; set; } = default!;
+    private UserPasswordList cRUDFunction = new UserPasswordList();
+
+    private void DeteleItem(MouseEventArgs e)
+    {
+        userPasswordList.Delete(userPassword.Id);
+        NavigationManager.NavigateTo("/vault",true);
+    }
+    private async void EditItem(UserPassword userPassword)
+    {
+
+        var parameters = new ModalParameters();
+        parameters.Add(nameof(FormComponent.userPassword), userPassword);
+        var dataForm=Modal.Show<FormComponent>("Edit", parameters);
+        var result = await dataForm.Result;
+        if (!result.Cancelled)
+        {
+            NavigationManager.NavigateTo("/vault",true);
+        }
+    }
+    private string ImageURL()
+    {
+        return @"https://" + userPassword.URL + "/favicon.ico";
+    }
+    private string ExternalURL()
+    {
+        return @"https://" + userPassword.URL ;
+    }
+}

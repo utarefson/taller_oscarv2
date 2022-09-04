@@ -1,0 +1,33 @@
+﻿.actions-content {
+    width: 100%;
+    padding: 5px 10px;
+    
+}
+
+.action-btn {
+    width: 24px;
+    height: 24px;
+    border: 1px solid gray;
+    float: right;
+    margin: 5px;
+}
+
+.action-btn:hover {
+    background: gray;
+    cursor: pointer;
+}
+
+.btn-limit-content {
+    background: #4a5568;
+    padding: 0;
+    height: 77px;
+}
+
+.card-body {
+    height: 77px;
+}
+
+.card-data {
+    text-align: left;
+    padding: 10px;
+}

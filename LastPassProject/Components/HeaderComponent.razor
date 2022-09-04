@@ -1,0 +1,68 @@
+﻿@using LastPassProject.Helpers
+@inject NavigationManager navigationManager
+<div id="header" class=" absolute top headerBar" role="banner" aria-label="Encabezado principal"
+     tabindex="-1">
+    <div class="header__content">
+        <div id="search">
+            <div id="logoContainer" class="logo-container">
+                <img id="logo" class="logo-lp" src="/img/vault_4.0/LastPass_Logo_White.svg"
+                     alt="LastPass">
+                <div id="logoPartnerContainer" class="logo-partner-container">
+                    <img id="logoPartner" class="logo-partner" src="" alt="LastPass">
+                </div>
+            </div>
+            <div class="searchWrapper menuButtonLeft" tabindex="-1">
+                <div class="searchInputContainer" role="search" aria-label="Buscar">
+                    <input type="text"
+                           id="vaultSearch"
+                           class=" "
+                           autocomplete="off"
+                           placeholder="Search"
+                           spellcheck="false"
+                           tabindex="2" 
+                           @onkeydown="@Enter"
+                           @bind-value="wordToSearch">
+                    <div class="searchCloseButton space-clickable inputLight" title="Borrar búsqueda"
+                         tabindex="3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="menuRight">
+            <a class="headerButton headerButtonActive" id="upgradeButton" target="_blank">
+                <div class="headerButtonTitle space-clickable" role="button" tabindex="3">Actualizar</div>
+            </a>
+            <div id="userMenuContainer" class="menuButtonRight space-clickable" role="button" tabindex="4">
+                <label for="btnshow">
+                    <div id="userMenu">
+                        <img class="userIcon" aria-hidden="true" role="presentation"
+                             src="/img/vault_4.0/Profile.png">
+                    </div>
+                    <div id="userMenuText">
+                        <ul class="userMenuText">
+                            <li class="userMenuTextPrimary truncateShort">user@email.com</li>
+                            <li class="userMenuTextSecondary">Premium Trial User</li>
+                        </ul>
+                    </div>
+                    <input type="checkbox" id="btnshow" style="display: none">
+                    <div class="card-menu" id="card-menu">
+                        <div class="card-menu-item">Account Setting</div>
+                        <div class="card-menu-item">Support Center</div>
+                        <div class="card-menu-item">Logo ut</div>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+@code{
+
+    [Parameter]public EventCallback<string> OnSearch{ get; set; }
+    private string wordToSearch;
+    public async void Enter(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            await OnSearch.InvokeAsync(wordToSearch);
+        }
+    }
+}
