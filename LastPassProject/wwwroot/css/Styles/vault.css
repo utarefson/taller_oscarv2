@@ -619,9 +619,6 @@ body.reactMainView.onBoardingDrawerOpened .leftOfAd:not(.advancedOptionsOverlay)
   background-color: #D22D27;
 }
 
-/*
-******* Credit Monitoring *******
-*/
 
 #creditMonitoring {
   display: none;
@@ -675,9 +672,6 @@ body.reactMainView.onBoardingDrawerOpened .leftOfAd:not(.advancedOptionsOverlay)
   text-decoration: underline;
 }
 
-/*
-******* React Views *******
-*/
 
 #reactMainContent {
   display: none;
@@ -827,7 +821,7 @@ body.reactMainView.onBoardingDrawerOpened .leftOfAd:not(.advancedOptionsOverlay)
   width: 300px;
   /* Responsive for everything but IE8 */
   width: calc(100% - 460px);
-  overflow-x: hidden;
+  overflow-x: visible;
 }
 
 @media screen and (min-width: 1100px) {

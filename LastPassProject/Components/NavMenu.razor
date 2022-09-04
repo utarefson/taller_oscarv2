@@ -1,13 +1,41 @@
-﻿<!-- Load an icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<!-- The sidebar -->
-<div class="sidebar">
-  <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
-  <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
-  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+﻿<input type="checkbox" id="btnshowmenu" style="">
+<div id="leftMenu" class="absolute left" role="navigation" aria-label="Navegación principal" tabindex="-1">
+    <div class="leftMenuContainer">
+        <div class="leftMenuRow">
+            <label for="btnshowmenu" style="display: flex">
+                <div id="leftMenuMinimizeButton" class="leftMenuCell leftMenuItem space-clickable opened"
+                     role="button"
+                     automation-id="vaultCollapseMenu" tabindex="1" title="Minimizar">
+                    <div title="Contraer menú" class="menuIcon" aria-hidden="true" role="presentation"></div>
+                    <span class="menuText">Contraer</span>
+                </div>
+            </label>
+        </div>
+        <div class="leftMenuRow">
+            <div class="leftMenuCell">
+                <div id="leftMenuItems">
+                    <div id="leftMenuItemsContainer" class="omaria">
+                        <div id="all" class="leftMenuItemCustom leftMenuItem space-clickable selected" tabindex="1">
+                            <i class="menuIcon fa fa-home"></i><span class="menuText">All Items</span>
+                        </div>
+                        <div id="passwords" class=" leftMenuItemCustom leftMenuItem space-clickable" tabindex="1">
+                            <i class="menuIcon fa fa-lock"></i><span class="menuText">Passwords</span>
+                        </div>
+                        <div id="passwords" class=" leftMenuItemCustom leftMenuItem space-clickable" tabindex="1">
+                            <i class="menuIcon fa fa-lock"></i><span class="menuText">Notes</span>
+                        </div>
+                        <div id="passwords" class=" leftMenuItemCustom leftMenuItem space-clickable" tabindex="1">
+                            <i class="menuIcon fa fa-lock"></i><span class="menuText">Addresses</span>
+                        </div>
+                        <div id="passwords" class=" leftMenuItemCustom leftMenuItem space-clickable" tabindex="1">
+                            <i class="menuIcon fa fa-lock"></i><span class="menuText">Payment Cards</span>
+                        </div>
+                        <div id="passwords" class=" leftMenuItemCustom leftMenuItem space-clickable" tabindex="1">
+                            <i class="menuIcon fa fa-lock"></i><span class="menuText">Bank Accounts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-@code {
-    
-}

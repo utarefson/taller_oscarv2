@@ -1,28 +1,5 @@
-﻿@inject NavigationManager _nav
-
-    <a class="btn btn-outline-dark" href="auth/signin-google" role="button" style="text-transform:none">
-      <img width="20" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
-      Login with Google
-    </a>
-
-
-<AuthorizeView>
-    <Authorized>
-        
-    </Authorized>
-</AuthorizeView>
-
-
-<!-- Minified CSS and JS -->
-<link   rel="stylesheet" 
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
-        crossorigin="anonymous">
-
-
-@code {
-    private void NextPage()
-    {
-        
-    }
-}
+﻿
+<a class="btn btn-outline-dark" href="auth/signin-google" role="button" style="text-transform:none;display: inherit;">
+    <img width="20" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+    Login with Google
+</a>

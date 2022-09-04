@@ -1,4 +1,3 @@
-using LastPassProject.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -12,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blazored.Modal;
+using LastPassProject.Helpers;
 
 namespace LastPassProject
 {
@@ -30,8 +30,9 @@ namespace LastPassProject
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
             services.AddBlazoredModal();
+            services.AddScoped<IUserPasswordList, UserPasswordList>();
+            services.AddTransient<Searcher>();
             services.AddAuthentication("Cookies")
                 .AddCookie(opt=>
                 {

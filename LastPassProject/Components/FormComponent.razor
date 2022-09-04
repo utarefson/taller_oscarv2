@@ -1,36 +1,64 @@
-﻿@using System.ComponentModel.DataAnnotations
-@using LastPassProject.Helpers
-<div>
-    <div> Añadir Contraseña</div>
-    <div>
-        <label>Url:</label>
-        <input @bind-value="UserPassword.URL" />
-    </div>
-    <div>
-        <label>Nombre:</label>
-        <input @bind-value="UserPassword.Name"/>
-        <label>Carpeta:</label>
-        <input @bind-value="UserPassword.Folder"/>
-    </div>
-    <div>
-        <label>Nombre de Usuario:</label>
-        <input @bind-value="UserPassword.Username"/>
-        <label>Contraseña:</label>
-        <input @bind-value="UserPassword.Password"/>
-    </div>
-    <div>
-        <label>Notas:</label>
-        <input @bind-value="UserPassword.Notes"/>
-    </div>
-    <button @onclick="Cancel">Cancelar</button>
+﻿
+<div class="box-login">
+    
+        @if (userPassword != null)
+        {
+            <div class="txt_login">
+                <label>Email:</label>
+                <input @bind-value="userPassword.URL" placeholder="@userPassword.URL" class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+            <div class="txt_login">
+                <label>Name:</label>
+                <input @bind-value="userPassword.Name" placeholder="@userPassword.Name" class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+            <div class="txt_login">
+                <label>Folder:</label>
+                <input @bind-value="userPassword.Folder" placeholder="@userPassword.Folder" class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+            <div class="txt_login">
+                <label>Username:</label>
+                <input @bind-value="userPassword.Username" placeholder="@userPassword.Username" class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+            <div class="txt_login">
+            <label>Password:</label>
+                <input @bind-value="userPassword.Password" placeholder="@userPassword.Password" class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+            <div class="txt_login">
+                <label>Notes:</label>
+                <input @bind-value="userPassword.Notes" placeholder="@userPassword.Notes" class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+             <button class="btn btn-danger" style="margin: 0 75px;" @onclick="Cancel">Cancel</button>
+            <button class="btn btn-primary" style="margin: 0 75px;" @onclick="EditPassword">Edit</button>
+    }
+    else
+    {
+         <div class="txt_login">
+                <label>Email:</label>
+                <input @bind-value="UserPassword.URL"  class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+            <div class="txt_login">
+                <label>Name:</label>
+                <input @bind-value="UserPassword.Name" class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+            <div class="txt_login">
+                <label>Folder:</label>
+                <input @bind-value="UserPassword.Folder" class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+            <div class="txt_login">
+                <label>Username:</label>
+                <input @bind-value="UserPassword.Username" class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+            <div class="txt_login">
+            <label>Password:</label>
+                <input @bind-value="UserPassword.Password" class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+            <div class="txt_login">
+                <label>Notes:</label>
+                <input @bind-value="UserPassword.Notes" class="input_login form-control col-sm-6 col-md-4" />
+            </div>
+            <button class="btn btn-danger" @onclick="Cancel" style="margin: 0 75px;">Cancel</button>
+            <button class="btn btn-primary" @onclick="SubmitForm" style="margin: 0 75px;">Save</button>
+    }
 
-    <button @onclick="SubmitForm">Guardar</button>
 </div>
-@code {
-    [CascadingParameter] BlazoredModalInstance BlazoredModal { get; set; } = default!;
-    UserPassword UserPassword = new UserPassword();
 
-
-        async Task SubmitForm() => await BlazoredModal.Close(ModalResult.Ok(UserPassword));
-        async Task Cancel() => await BlazoredModal.Cancel();
-}

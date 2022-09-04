@@ -1,9 +1,0 @@
-﻿@inject NavigationManager _nav
-<button class="rounded-pill" style=" color:@color" @onclick="@(()=>_nav.NavigateTo(@pageToMove))">@content</button>
-
-@code {
-    [Parameter] public string content { get; set; }
-    [Parameter] public string pageToMove { get; set; }
-    [Parameter] public string color { get; set; }
-
-}

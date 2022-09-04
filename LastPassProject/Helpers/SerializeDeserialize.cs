@@ -8,11 +8,9 @@ namespace LastPassProject.Helpers
     {
         public void CreateUpdateJson(List<UserPassword> userPasswords)
         {
-
             string jsonString = JsonSerializer.Serialize(userPasswords);
             File.WriteAllText(@"D:\C#Test\Examples\LastPassProject\passwords.json", jsonString.ToString());
         }
-
         public List<UserPassword> DeserializeJson(string jsonString)
         {
             List<UserPassword>? userPasswords = JsonSerializer.Deserialize<List<UserPassword>>(jsonString);

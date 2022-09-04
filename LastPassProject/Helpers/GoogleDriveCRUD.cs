@@ -58,7 +58,6 @@ namespace LastPassProject.Helpers
             DriveService service = GetService();
             var updatedFileMetadata = new Google.Apis.Drive.v3.Data.File();
             updatedFileMetadata.Name = "test";
-
             FilesResource.UpdateMediaUpload updateRequest;
             string fileId = "1qaEhQk2QtcOWmTuFwubM1AOp70KD-N7S";
             using (var stream = new FileStream(@"D:\C#Test\Examples\LastPassProject\passwords.json", FileMode.OpenOrCreate))
@@ -68,33 +67,16 @@ namespace LastPassProject.Helpers
                 var file = updateRequest.ResponseBody;
                 return file.Id;
             };
-
         }
         public string ReadFile()
         {
-            try
-            {
                 string fileId = "1qaEhQk2QtcOWmTuFwubM1AOp70KD-N7S";
                 var service = GetService();
                 var request = service.Files.Get(fileId);
                 var stream = new MemoryStream();
                 request.Download(stream);
-                MemoryStream memstream = stream;
                 string decoded = Encoding.UTF8.GetString(stream.ToArray());
-                //Console.WriteLine(decoded);
                 return decoded;
-            }
-            catch (Exception e)
-            {
-                if (e is AggregateException)
-                {
-                    return"Credential Not found";
-                }
-                else
-                {
-                    throw;
-                }
-            }
         }
     }
 }

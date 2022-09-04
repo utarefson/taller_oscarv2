@@ -1,23 +1,70 @@
-﻿@page "/h"
-<header>
-  
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" style="background-color:red !important">
-        <div class="container-fluid " style="display:flex;flex-direction:row;">
-            <img  src="img/LastPass_Logo_White.png" height="24" width="150"  />
-            <div class="col-8 collapse navbar-collapse">
-                <div class=" collapse navbar-collapse">
-                    <input placeholder="search my vault" />
+﻿@using LastPassProject.Helpers
+@inject NavigationManager navigationManager
+<div id="header" class=" absolute top headerBar" role="banner" aria-label="Encabezado principal"
+     tabindex="-1">
+    <div class="header__content">
+        <div id="search">
+            <div id="logoContainer" class="logo-container">
+                <img id="logo" class="logo-lp" src="/img/vault_4.0/LastPass_Logo_White.svg"
+                     alt="LastPass">
+                <div id="logoPartnerContainer" class="logo-partner-container">
+                    <img id="logoPartner" class="logo-partner" src="" alt="LastPass">
                 </div>
-                <div>username</div>
+            </div>
+            <div class="searchWrapper menuButtonLeft" tabindex="-1">
+                <div class="searchInputContainer" role="search" aria-label="Buscar">
+                    <input type="text"
+                           id="vaultSearch"
+                           class=" "
+                           autocomplete="off"
+                           placeholder="Search"
+                           spellcheck="false"
+                           tabindex="2" 
+                           @onkeydown="@Enter"
+                           @bind-value="wordToSearch">
+                    <div class="searchCloseButton space-clickable inputLight" title="Borrar búsqueda"
+                         tabindex="3"></div>
+                </div>
             </div>
         </div>
-    </nav>
+        <div class="menuRight">
+            <a class="headerButton headerButtonActive" id="upgradeButton" target="_blank">
+                <div class="headerButtonTitle space-clickable" role="button" tabindex="3">Actualizar</div>
+            </a>
+            <div id="userMenuContainer" class="menuButtonRight space-clickable" role="button" tabindex="4">
+                <label for="btnshow">
+                    <div id="userMenu">
+                        <img class="userIcon" aria-hidden="true" role="presentation"
+                             src="/img/vault_4.0/Profile.png">
+                    </div>
+                    <div id="userMenuText">
+                        <ul class="userMenuText">
+                            <li class="userMenuTextPrimary truncateShort">usuario@email.com</li>
+                            <li class="userMenuTextSecondary">Usuario de prueba de la versión Premium</li>
+                        </ul>
+                    </div>
+            
 
-        
-   
- 
-</header>
+                    <input type="checkbox" id="btnshow" style="display: none">
+                    <div class="card-menu" id="card-menu">
+                        <div class="card-menu-item">Configuracion de la cuenta</div>
+                        <div class="card-menu-item">centro de asistencia</div>
+                        <div class="card-menu-item">cerrar sesion</div>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+@code{
 
-@code {
-    
+    [Parameter]public EventCallback<string> OnSearch{ get; set; }
+    private string wordToSearch;
+    public async void Enter(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            await OnSearch.InvokeAsync(wordToSearch);
+        }
+    }
 }

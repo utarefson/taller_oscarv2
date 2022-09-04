@@ -1,0 +1,66 @@
+﻿.form-group {
+    border-radius: 30px;
+    border-block-color: black;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    
+    padding-block: 20px;
+}
+
+.btn {
+    align-content: flex-start;
+}
+
+.oi-account-login {
+    text-align-last: center;
+}
+
+.box-login {
+    box-sizing: border-box;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    width: 550px;
+    border-radius: 5px;
+    margin: 50px auto;
+    padding: 30px 50px;
+    box-shadow: rgb(0 0 0 / 25%) 0px 2px 4px 0px;
+    border: 1px solid rgb(245, 247, 248);
+}
+
+.centerLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.txt_login {
+    font-family: "Open Sans", sans-serif;
+    min-height: 50px;
+    position: relative;
+    margin-bottom: 26px;
+    color: #333;
+    width: 290%;
+}
+
+.input_login {
+    color: rgb(23, 33, 40);
+    font-size: 16px;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0px;
+    padding: 6px 0px;
+    border-radius: 0px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-width: 0px 0px 1px !important;
+    border-style: solid !important;
+    border-color: transparent transparent rgb(231, 232, 234) !important;
+    border-image: initial !important;
+}

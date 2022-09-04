@@ -1,0 +1,24 @@
+﻿body {
+}
+
+.btn_login {
+    display: inline-block;
+    outline: none;
+    padding: 0px 18px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color: rgb(210, 45, 39);
+    box-shadow: rgb(0 0 0 / 25%) 0px 1px 2px 0px;
+    border: none;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    transition: box-shadow 225ms cubic-bezier(0.25, 0.8, 0.25, 1) 0s, border-color 225ms cubic-bezier(0.25, 0.8, 0.25, 1) 0s, background-color 225ms cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+    width: 100%;
+    position: relative;
+}
